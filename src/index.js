@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-const recipeData = [
+const recipeData = [ //will modify to add recipes remotely later
   {
     title: "Spaghetti Bolognese",
     imageUrl: "https://www.errenskitchen.com/wp-content/uploads/2018/08/Spaghetti-Bolognese-1-3.jpg",
@@ -43,11 +43,11 @@ function App() {
 
   return (
     <div>
-      <h1>My Recipe App</h1>
+      <h1 className='header'>My Recipe App</h1>
       {!searched ? (
         <SearchBar onSearch={handleSearch} />
       ) : (
-        <button onClick={handleGoBack}>Go Back</button>
+        <button onClick={handleGoBack}>Go Back</button> //allows you to go back
       )}
       {filteredRecipes.map(recipe => (
         <RecipeCard
@@ -88,14 +88,31 @@ function SearchBar({ onSearch }) {
 }
 
 function RecipeCard(props) {
+  const [expanded, setExpanded] = useState(false);
+
+  
+  function toggleExpand() {
+    setExpanded(!expanded);
+  }
+
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <img src={props.imageUrl} alt={props.title} className="recipe-image" />
-      <p>Cuisine: {props.cuisine}</p>
-      <p>Ingredients: {props.ingredients}</p>
-      <p>Instructions: {props.instructions}</p>
-      <VoteButton />
+    <div className={`recipe-card ${expanded ? 'expanded' : ''}`} onClick={toggleExpand}>
+      <div className="card-content">
+        <div className="image-container">
+          <img src={props.imageUrl} alt={props.title} />
+        </div>
+        <div className="details-container">
+          <h2>{props.title}</h2>
+        </div>
+      </div>
+      {expanded && (
+        <div className="expanded-content">
+          <p>Cuisine: {props.cuisine}</p>
+          <p>Ingredients: {props.ingredients}</p>
+          <p>Instructions: {props.instructions}</p>
+          <VoteButton />
+        </div>
+      )}
     </div>
   );
 }
