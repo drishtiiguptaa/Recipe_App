@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import './styles.css';
 
 const recipeData = [
   {
@@ -90,7 +91,7 @@ function RecipeCard(props) {
   return (
     <div>
       <h2>{props.title}</h2>
-      <img src={props.imageUrl} alt={props.title} />
+      <img src={props.imageUrl} alt={props.title} className="recipe-image" />
       <p>Cuisine: {props.cuisine}</p>
       <p>Ingredients: {props.ingredients}</p>
       <p>Instructions: {props.instructions}</p>
