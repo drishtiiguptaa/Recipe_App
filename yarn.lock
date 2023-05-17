@@ -1838,7 +1838,7 @@ async-limiter@~1.0.0:
   resolved "https://registry.npmjs.org/async-limiter/-/async-limiter-1.0.1.tgz"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
 
-async@^2.0.0, async@^2.1.4, async@^2.6.4:
+async@^2.1.4, async@^2.6.4:
   version "2.6.4"
   resolved "https://registry.npmjs.org/async/-/async-2.6.4.tgz"
   integrity sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==
@@ -7076,16 +7076,6 @@ mkdirp@^0.5.1, mkdirp@^0.5.6, mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
-mout@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.npmjs.org/mout/-/mout-0.11.1.tgz"
-  integrity sha512-pK9VNiLE3QgGBrC/3ICAscwOLU7oTNeK2l32uqNAioBYtB2tQAfSsGDNChUlk7CP23126mc5lUt6+na9FlN8JA==
-
-mout@^1.0.0:
-  version "1.2.4"
-  resolved "https://registry.npmjs.org/mout/-/mout-1.2.4.tgz"
-  integrity sha512-mZb9uOruMWgn/fw28DG4/yE3Kehfk1zKCLhuDU2O3vlKdnBBr4XaOCqVTflJ5aODavGUPqFHZgrFX3NJVuxGhQ==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/move-concurrently/-/move-concurrently-1.0.1.tgz"
@@ -7310,14 +7300,6 @@ nwsapi@^2.0.7, nwsapi@^2.2.4:
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.4.tgz"
   integrity sha512-NHj4rzRo0tQdijE9ZqAx6kYDcoRwYwSYzCA8MY3JzfxlrvEU0jhnhJT9BhqhJs7I/dKcrDm6TyulaRqZPIhN5g==
 
-nyks@^2.8.0:
-  version "2.31.3"
-  resolved "https://registry.npmjs.org/nyks/-/nyks-2.31.3.tgz"
-  integrity sha512-pdk5HXFZ/YEDp7g/y0JmbBZ17FtI/8zTbAXkji0vza8kep2QmX2GxQpvw+/FvTaIVngF7Ah9IPMcUBMljugf0g==
-  dependencies:
-    async "^2.0.0"
-    mout "^1.0.0"
-
 oauth-sign@~0.9.0:
   version "0.9.0"
   resolved "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz"
@@ -7442,14 +7424,6 @@ onetime@^2.0.0:
   integrity sha512-oyyPpiMaKARvvcgip+JV+7zci5L8D1W9RZIz2l1o08AM3pfspitVWnPt3mzHcBPp12oYMTy0pqrFs/C+m3EwsQ==
   dependencies:
     mimic-fn "^1.0.0"
-
-openssl@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/openssl/-/openssl-1.0.0.tgz"
-  integrity sha512-GGtYppZQCyzdpmF88zFF8i6jSKmVX9AZPQuUP54dzDPK0et5NGFzrsIt5/gWMM1B8NjndOlB9WzCKU8Y/3flew==
-  dependencies:
-    mout "^0.11.1"
-    nyks "^2.8.0"
 
 opn@^5.1.0, opn@5.4.0:
   version "5.4.0"
