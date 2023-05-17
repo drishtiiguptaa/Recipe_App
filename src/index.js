@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 import { recipeData } from './recipeData'; // Import the recipeData constant
+import './index.css';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <div>
-      <h1 className='header'>Hello Aakash</h1>
+      <h1 className='header'>My Recipe App</h1>
       {!searched ? (
         <SearchBar onSearch={handleSearch} />
       ) : (
