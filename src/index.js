@@ -21,20 +21,33 @@ const recipeData = [
 function App() {
   const [query, setQuery] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [searched, setSearched] = useState(false);
 
   function handleSearch(query) {
     setQuery(query);
+    setSearched(true);
+  }
+
+  function handleGoBack() {
+    setSearched(false);
+    setQuery('');
   }
 
   useEffect(() => {
-    const filtered = recipeData.filter(recipe => recipe.title.toLowerCase().includes(query.toLowerCase()));
-    setFilteredRecipes(filtered);
+    const filtered = recipeData.filter(recipe =>
+      recipe.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredRecipes(filtered.length > 0 ? filtered : []);
   }, [query]);
 
   return (
     <div>
       <h1>My Recipe App</h1>
-      <SearchBar onSearch={handleSearch} />
+      {!searched ? (
+        <SearchBar onSearch={handleSearch} />
+      ) : (
+        <button onClick={handleGoBack}>Go Back</button>
+      )}
       {filteredRecipes.map(recipe => (
         <RecipeCard
         key={recipe.title}
@@ -62,7 +75,12 @@ function SearchBar({ onSearch }) {
 
   return (
     <div>
-      <input type="text" placeholder="Search recipes..." value={query} onChange={handleQueryChange} />
+      <input
+        type="text"
+        placeholder="Search recipes..."
+        value={query}
+        onChange={handleQueryChange}
+      />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
