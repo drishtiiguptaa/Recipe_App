@@ -54,7 +54,7 @@ export const recipeData = [ //will modify to add recipes remotely later
   },
   {
     title: "Tomato Soup",
-    imageUrl: "https://www.simplyrecipes.com/thmb/EgyBYE---ytAEssbF2zQP5eyDds=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-California-Roll-LEAD-05-3c3a2fb4a9034e5c8cb34d6a24d9731e.jpg",
+    imageUrl: "https://healthyrecipesblogs.com/wp-content/uploads/2022/05/tomato-soup-featured-2022.jpg",
     cuisine: "American",
     ingredients: "nori, rice, avocado, imitation crab",
     instructions: "1. Soak rice noodles in cold water for 30 minutes. 2. Heat oil in a pan and cook shrimp until pink. 3. Add tofu, bean sprouts, and eggs and stir-fry for 2 minutes. 4. Drain noodles and add to the pan. 5. Add sauce and stir-fry for another 2 minutes. 6. Serve hot.",

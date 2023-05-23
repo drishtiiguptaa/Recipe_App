@@ -6,13 +6,15 @@ import './index.css';
 import Pagination from './Pagination';
 import RecipeCard from './RecipeCard';
 import CuisineFilter from './CuisineFilter';
+import SearchBar from './SearchBar';
 
 function App() {
   const [query, setQuery] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [searched, setSearched] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(4);
   const [recipesPerPage] = useState(3); // Set number of recipes
+  const [selectedCuisine, setSelectedCuisine] = useState('');
 
   function handleSearch(query) {
     setQuery(query);
@@ -33,13 +35,26 @@ function App() {
     setCurrentPage(1); // Reset to the first page when the filtered recipes change
   }, [query]);
 
+  // Filter recipes based on selected cuisine
+  const filteredByCuisineRecipes = selectedCuisine
+    ? filteredRecipes.filter(recipe => recipe.cuisine === selectedCuisine)
+    : filteredRecipes;
+
   // Get current recipes based on pagination
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-  const currentRecipes = filteredRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-  
+  const currentRecipes = filteredByCuisineRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Filtering by cuisine type
+  function handleCuisineChange(cuisine) {
+    setSelectedCuisine(cuisine);
+    setCurrentPage(1); // Reset to the first page when the cuisine filter changes
+  }
+
+  const cuisines = Array.from(new Set(recipeData.map(recipe => recipe.cuisine)));
 
   return (
       <div>
@@ -49,6 +64,11 @@ function App() {
         ) : (
           <button onClick={handleGoBack}>Go Back</button> //allows you to go back
         )}
+        <CuisineFilter
+          cuisines={cuisines}
+          selectedCuisine={selectedCuisine}
+          onCuisineChange={handleCuisineChange}
+        />
         <div className="recipe-container">
           {currentRecipes.map(recipe => (
             <RecipeCard
@@ -68,30 +88,6 @@ function App() {
           paginate={paginate}
         />
       </div>
-  );
-}
-
-function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState('');
-
-  function handleSearch() {
-    onSearch(query);
-  }
-
-  function handleQueryChange(event) {
-    setQuery(event.target.value);
-  }
-
-  return (
-    <div className='search-bar'>
-      <input
-        type="text"
-        placeholder="Search recipes..."
-        value={query}
-        onChange={handleQueryChange}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
   );
 }
 
